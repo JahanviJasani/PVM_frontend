@@ -477,6 +477,10 @@ img, svg {
   margin-bottom: 0.9375rem;
 }
 
+.mb-32 {
+	margin-bottom: 2rem;
+}
+
 /* Display Property */
 .d-none {
   display: none;

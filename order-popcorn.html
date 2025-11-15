@@ -17,16 +17,20 @@
 	<body>
 		<div class="screen__wrapper d-flex">
 			<!-- ======= Header ======= -->
-			<header class="header d-flex justify-content-between align-items-center">
-				<div class="logo h-100">
-					<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
-				</div>
-				<div class="order__id">
-						ORDER ID: 1B28266H
+			<header class="header">
+				<div class="container d-flex justify-content-between align-items-center h-100">
+					<div class="logo h-100">
+						<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
+					</div>
+					<div class="order__id">
+							ORDER ID: 1B28266H
+					</div>
 				</div>
 			</header>
-			<section class="content">
-				<div class="order__popcorn">
+
+			<!-- ======= Content ======= -->
+			<section class="content d-flex flex-column justify-content-between">
+				<div class="order__popcorn d-flex align-items-center flex-1 mb-32">
 					<div class="container">
 						<div class="section__header">
 							<h1 class="section__title title--one">ORDER POPCORN</h1>
@@ -77,23 +81,45 @@
 						</div>
 					</div>
 				</div>
-			</section>
-			<footer class="footer d-flex align-items-center justify-content-between">
-				<div class="footer__left d-flex gap-32">
-					<a href="/" class="d-flex align-items-center"><img class="home__icon" src="img/poptalk_home_icon.png" alt="Poptalk Home Icon"></a>
-					<button class="btn__main">REPORT AND ISSUE</button>
-				</div>	
-				<div class="footer__right d-flex gap-20">
-					<div class="items__selected d-flex align-items-center">
-						<span class="selected__text">ITEMS SELECTED</span>
-						<span class="selected__count">2</span>
+				<div class="promotions">
+					<div class="container">
+						<div class="row">
+							<div class="col-3">
+								<img src="img/50_percent_discount.png" alt="">
+							</div>
+							<div class="col-3">
+								<img src="img/launch_discount_offers.png" alt="">
+							</div>
+							<div class="col-3">
+								<img src="img/pay_for_two_offer.png" alt="">
+							</div>
+							<div class="col-3">
+								<img src="img/50_percent_discount_drinks.png" alt="">
+							</div>
+						</div>
 					</div>
-					<form id="next-form" action="/ordersnacks" method="post">
-						<input type="hidden" name="qty1" id="form-qty-1" value="0">
-						<input type="hidden" name="qty2" id="form-qty-2" value="0">
-						<input type="hidden" name="qty3" id="form-qty-3" value="0">
-						<button type="submit" class="btn__main">GO TO NEXT PAGE</button>
-					</form>
+				</div>
+			</section>
+
+			<!-- ======= Footer ======= -->
+			<footer class="footer">
+				<div class="container d-flex align-items-center justify-content-between h-100">
+					<div class="footer__left d-flex gap-32">
+						<a href="/" class="d-flex align-items-center"><img class="home__icon" src="img/poptalk_home_icon.png" alt="Poptalk Home Icon"></a>
+						<button class="btn__main">REPORT AND ISSUE</button>
+					</div>	
+					<div class="footer__right d-flex gap-20">
+						<div class="items__selected d-flex align-items-center">
+							<span class="selected__text">ITEMS SELECTED</span>
+							<span class="selected__count">2</span>
+						</div>
+						<form id="next-form" action="/ordersnacks" method="post">
+							<input type="hidden" name="qty1" id="form-qty-1" value="0">
+							<input type="hidden" name="qty2" id="form-qty-2" value="0">
+							<input type="hidden" name="qty3" id="form-qty-3" value="0">
+							<button type="submit" class="btn__main">GO TO NEXT PAGE</button>
+						</form>
+					</div>
 				</div>	
 			</footer>
 		</div>
