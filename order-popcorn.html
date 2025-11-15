@@ -31,18 +31,46 @@
 						<div class="section__header">
 							<h1 class="section__title title--one">ORDER POPCORN</h1>
 						</div>
-						<div class="row"> 
-							<div class="col-3">
+						<div class="row justify-content-center"> 
+							<div class="col-auto">
 								<div class="popcorn__block">
 									<div class="pc__block--content">
 										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
 										<h3 class="title--two mb-10">SALT POPCORN</h3>
-										<span class="d-block popcorn__price">Rs. 125/-</span>
+										<span data-unit="125" data-qty-target="qty-1" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
 									</div>
 									<div class="popcorn__count d-flex align-items-center justify-content-between">
-											<i class="count__icons icon-plus"></i>
-											<span class="d-block popcorn__qty">1</span>
-											<i class="count__icons icon-minus"></i>
+											<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											<span id="qty-1" class="d-block popcorn__qty">0</span>
+											<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+										</div>
+								</div>
+							</div>
+							<div class="col-auto">
+								<div class="popcorn__block">
+									<div class="pc__block--content">
+										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+										<h3 class="title--two mb-10">CARAMEL POPCORN</h3>
+										<span data-unit="125" data-qty-target="qty-2" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+									</div>
+									<div class="popcorn__count d-flex align-items-center justify-content-between">
+											<i class="count__icons icon-plus qty-plus" data-target="qty-2"></i>
+											<span id="qty-2" class="d-block popcorn__qty">0</span>
+											<i class="count__icons icon-minus qty-minus" data-target="qty-2"></i>
+										</div>
+								</div>
+							</div>
+							<div class="col-auto">
+								<div class="popcorn__block">
+									<div class="pc__block--content">
+										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+										<h3 class="title--two mb-10">CHEESE POPCORN</h3>
+										<span data-unit="125" data-qty-target="qty-3" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+									</div>
+									<div class="popcorn__count d-flex align-items-center justify-content-between">
+											<i class="count__icons icon-plus qty-plus" data-target="qty-3"></i>
+											<span id="qty-3" class="d-block popcorn__qty">0</span>
+											<i class="count__icons icon-minus qty-minus" data-target="qty-3"></i>
 										</div>
 								</div>
 							</div>
@@ -65,4 +93,128 @@
 			</footer>
 		</div>
 	</body>
+	<!-- <script id="unit-price-data" type="application/json">{{ (unit_price_map or {}) | tojson | safe }}</script> -->
+	<!-- <script id="preselected-popcorn" type="application/json">{{ (preselected_popcorn or {}) | tojson | safe }}</script> -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// If backend provided unit prices, apply them to price containers
+			try {
+					var priceMap = {};
+					var unitScript = document.getElementById('unit-price-data');
+					if (unitScript) {
+							priceMap = JSON.parse(unitScript.textContent || '{}');
+					}
+					if (priceMap && typeof priceMap === 'object') {
+							document.querySelectorAll('.popcorn__block').forEach(function (container) {
+									var title = (container.querySelector('.title--two')?.textContent || '').trim();
+									var unit = priceMap[title];
+									if (typeof unit === 'number') {
+											container.querySelectorAll('.popcorn__price').forEach(function (p) {
+													p.setAttribute('data-unit', String(unit));
+											});
+									}
+							});
+					}
+			} catch (e) { /* ignore */ }
+			function updatePriceForQuantity(targetId) {
+					var qtyEl = document.getElementById(targetId);
+					if (!qtyEl) return;
+					var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
+					if (isNaN(qty)) qty = 0;
+					var priceContainers = document.querySelectorAll('.popcorn__price[data-qty-target="' + targetId + '"]');
+					priceContainers.forEach(function(pc){
+							var unit = parseFloat(pc.getAttribute('data-unit') || '0');
+							var total = Math.max(0, Math.round(unit * qty));
+							var valueEl = pc.querySelector('.price-value');
+							if (valueEl) valueEl.textContent = String(total);
+					});
+			}
+
+			function updateQuantity(targetId, delta) {
+				console.log("Here");
+					var el = document.getElementById(targetId);
+					console.log(el);
+					if (!el) return;
+					var value = parseInt(el.textContent || el.innerText || '0', 10);
+					if (isNaN(value)) value = 0;
+					value = value + delta;
+					if (value < 0) value = 0;
+					el.textContent = String(value);
+					updatePriceForQuantity(targetId);
+			}
+
+			var plusButtons = document.querySelectorAll('.qty-plus');
+			plusButtons.forEach(function(btn){				
+					btn.addEventListener('click', function(){
+							var target = btn.getAttribute('data-target');
+							console.log("plus button clicked");
+							if (target) updateQuantity(target, 1);
+					});
+			});
+
+			var minusButtons = document.querySelectorAll('.qty-minus');
+			minusButtons.forEach(function(btn){
+					btn.addEventListener('click', function(){
+							var target = btn.getAttribute('data-target');
+							if (target) updateQuantity(target, -1);
+					});
+			});
+
+			// Initialize quantities from backend if available
+			try {
+					var preSel = {};
+					var preScript = document.getElementById('preselected-popcorn');
+					if (preScript) preSel = JSON.parse(preScript.textContent || '{}');
+					Object.keys(preSel || {}).forEach(function(qid){
+							var el = document.getElementById(qid);
+							if (el) {
+									var v = parseInt(preSel[qid] || 0, 10);
+									if (!isNaN(v)) el.textContent = String(v);
+									updatePriceForQuantity(qid);
+							}
+					});
+			} catch (e) { /* ignore */ }
+			// Recompute for any remaining
+			var qtySpans = document.querySelectorAll('.popcorn__qty[id]');
+			qtySpans.forEach(function(q){ updatePriceForQuantity(q.id); });
+
+			// Update ITEMS SELECTED count
+			function updateItemsSelected(){
+					var total = 0;
+					document.querySelectorAll('.popcorn__qty[id]').forEach(function(q){
+							var v = parseInt(q.textContent || q.innerText || '0', 10);
+							if (!isNaN(v)) total += v;
+					});
+					var t = document.getElementById('items-selected-count');
+					if (t) t.textContent = String(total);
+			}
+			updateItemsSelected();
+			document.querySelectorAll('.qty-plus, .qty-minus').forEach(function(btn){
+					btn.addEventListener('click', updateItemsSelected);
+			});
+
+			// Sync hidden form fields with current quantities on submit
+			var form = document.getElementById('next-form');
+			if (form) {
+					form.addEventListener('submit', function(){
+							var q1 = document.getElementById('qty-1');
+							var q2 = document.getElementById('qty-2');
+							var q3 = document.getElementById('qty-3');
+							var f1 = document.getElementById('form-qty-1');
+							var f2 = document.getElementById('form-qty-2');
+							var f3 = document.getElementById('form-qty-3');
+							if (q1 && f1) f1.value = (q1.textContent || q1.innerText || '0').trim();
+							if (q2 && f2) f2.value = (q2.textContent || q2.innerText || '0').trim();
+							if (q3 && f3) f3.value = (q3.textContent || q3.innerText || '0').trim();
+					});
+			}
+			// 30s inactivity redirect to home
+			/*try {
+					var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
+					['click','keydown','touchstart'].forEach(function(evt){
+							window.addEventListener(evt, function(){ clearTimeout(inactivityTimer); inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000); }, { passive: true });
+					});
+			} catch(e) {}*/
+		});
+	</script>
 </html>
