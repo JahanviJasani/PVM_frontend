@@ -118,11 +118,11 @@ h1, h2, h3 {
 }
 
 .popcorn__qty {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 }
 
 .count__icons {
-	font-size: 1rem;
+	font-size: 1.125rem;
 	cursor: pointer;
 }
 
@@ -161,10 +161,11 @@ h1, h2, h3 {
 }
 
 .selected__count {
+	width: 50px;
 	height: 100%;
+	text-align: center;
 	line-height: 43px;
 	background: #fff;
-	padding: 0 1.125rem;
 }
 
 /*--------------------------------------------------------------
