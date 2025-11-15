@@ -88,13 +88,18 @@
 						<span class="selected__text">ITEMS SELECTED</span>
 						<span class="selected__count">2</span>
 					</div>
-					<button class="btn__main">GO TO NEXT PAGE</button>
+					<form id="next-form" action="/ordersnacks" method="post">
+						<input type="hidden" name="qty1" id="form-qty-1" value="0">
+						<input type="hidden" name="qty2" id="form-qty-2" value="0">
+						<input type="hidden" name="qty3" id="form-qty-3" value="0">
+						<button type="submit" class="btn__main">GO TO NEXT PAGE</button>
+					</form>
 				</div>	
 			</footer>
 		</div>
 	</body>
-	<!-- <script id="unit-price-data" type="application/json">{{ (unit_price_map or {}) | tojson | safe }}</script> -->
-	<!-- <script id="preselected-popcorn" type="application/json">{{ (preselected_popcorn or {}) | tojson | safe }}</script> -->
+	<script id="unit-price-data" type="application/json">{{ (unit_price_map or {}) | tojson | safe }}</script>
+	<script id="preselected-popcorn" type="application/json">{{ (preselected_popcorn or {}) | tojson | safe }}</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			// If backend provided unit prices, apply them to price containers
@@ -131,9 +136,7 @@
 			}
 
 			function updateQuantity(targetId, delta) {
-				console.log("Here");
 					var el = document.getElementById(targetId);
-					console.log(el);
 					if (!el) return;
 					var value = parseInt(el.textContent || el.innerText || '0', 10);
 					if (isNaN(value)) value = 0;
@@ -147,7 +150,6 @@
 			plusButtons.forEach(function(btn){				
 					btn.addEventListener('click', function(){
 							var target = btn.getAttribute('data-target');
-							console.log("plus button clicked");
 							if (target) updateQuantity(target, 1);
 					});
 			});
