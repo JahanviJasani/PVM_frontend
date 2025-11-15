@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PopTalk | Order Popcorn</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/4434fcf3c8/PVM_frontend/style.css">
+
+		<!-- Stylesheets -->
+		 <link href="css/core.css" rel="stylesheet">
+		 <link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="screen__wrapper d-flex">
+			<!-- ======= Header ======= -->
+			<header class="header">
+				<div class="container d-flex justify-content-between align-items-center h-100">
+					<div class="logo h-100">
+						<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
+					</div>
+					<div class="order__id">
+							ORDER ID: 1B28266H
+					</div>
+				</div>
+			</header>
+
+			<!-- ======= Content ======= -->
+			<section class="content d-flex flex-column justify-content-between">
+				<div class="order__popcorn d-flex align-items-center flex-1 mt-32 mb-32">
+					<div class="container">
+						<div class="section__header">
+							<h1 class="section__title title--one">ORDER SNACKS</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ======= Footer ======= -->
+			<footer class="footer">
+				<div class="container d-flex align-items-center justify-content-between h-100">
+					<div class="footer__left d-flex gap-32">
+						<a href="/" class="d-flex align-items-center"><img class="home__icon" src="img/poptalk_home_icon.png" alt="Poptalk Home Icon"></a>
+						<button class="btn__main">REPORT AND ISSUE</button>
+					</div>	
+					<div class="footer__right d-flex gap-20">
+						<div class="items__selected d-flex align-items-center">
+							<span class="selected__text">ITEMS SELECTED</span>
+							<span id="items-selected-count" class="selected__count">2</span>
+						</div>
+						<form id="next-form" action="/ordersnacks" method="post">
+							<input type="hidden" name="qty1" id="form-qty-1" value="0">
+							<input type="hidden" name="qty2" id="form-qty-2" value="0">
+							<input type="hidden" name="qty3" id="form-qty-3" value="0">
+							<button type="submit" class="btn__main">GO TO NEXT PAGE</button>
+						</form>
+					</div>
+				</div>	
+			</footer>
+		</div>
+	</body>
+</html>
