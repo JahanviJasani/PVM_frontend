@@ -109,13 +109,13 @@
 
 			<!-- ======= Footer ======= -->
 			<footer class="footer">
-				<div class="container d-flex align-items-center justify-content-between h-100">
+				<div class="container d-flex align-items-center justify-content-between">
 					<div class="footer__left d-flex">
 						<a href="/" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
 					</div>	
 					<div class="footer__right d-flex align-items-center">
 						<div class="order__id me-24">ORDER ID: 1B28266H</div>
-						<form id="next-form" action="/ordersnacks" method="post">
+						<form id="next-form" action="/order-snacks" method="post">
 							<input type="hidden" name="qty1" id="form-qty-1" value="0">
 							<input type="hidden" name="qty2" id="form-qty-2" value="0">
 							<input type="hidden" name="qty3" id="form-qty-3" value="0">
@@ -142,11 +142,11 @@
 			};
 			const getInt = (el) => parseInt(el?.textContent ?? "0", 10) || 0;
 
-			/* ---------- 1. Load backend values ---------- */
+			/* ---------- Load backend values ---------- */
 			const priceMap = readJSON("unit-price-data");
   		const preselected = readJSON("preselected-popcorn");	
 
-			/* ---------- 2. Assign data-unit on price blocks ---------- */
+			/* ---------- Assign data-unit on price blocks ---------- */
 			document.querySelectorAll(".popcorn__block").forEach(block => {
 				const title = block.querySelector(".title--two")?.textContent?.trim();
 				const unit = priceMap[title];
@@ -155,7 +155,7 @@
 					.forEach(p => p.dataset.unit = unit);
 			});
 
-			/* ---------- 3. Quantity → Price updater ---------- */
+			/* ---------- Quantity → Price updater ---------- */
 			const updatePriceForQuantity = (targetId) => {
 				const qtyEl = document.getElementById(targetId);
 				if (!qtyEl) return;
@@ -169,7 +169,7 @@
 					});
 			};
 
-			/* ---------- 4. Quantity increment/decrement ---------- */
+			/* ---------- Quantity increment/decrement ---------- */
 			const updateQuantity = (id, delta) => {
 				const el = document.getElementById(id);
 				if (!el) return;
@@ -186,7 +186,7 @@
 				btn.addEventListener("click", () => updateQuantity(btn.dataset.target, -1));
 			}
 
-			/* ---------- 5. Preload backend quantities ---------- */
+			/* ---------- Preload backend quantities ---------- */
 			for (const id in preselected) {
 				const el = document.getElementById(id);
 				if (!el) continue;
@@ -194,7 +194,7 @@
 				updatePriceForQuantity(id);
 			}
 
-			/* ---------- 6. Update all prices once ---------- */
+			/* ---------- Update all prices once ---------- */
 			document.querySelectorAll(".popcorn__qty[id]")
 				.forEach(q => updatePriceForQuantity(q.id));
 

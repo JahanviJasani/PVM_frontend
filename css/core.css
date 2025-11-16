@@ -57,6 +57,19 @@ ul {
   list-style: none;
 }
 
+/* Typography */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 /* Layout & Grid */
 .w-100 {
   width: 100%;
@@ -497,6 +510,10 @@ ul {
 
 .mb-15 {
   margin-bottom: 0.9375rem;
+}
+
+.mb-24 {
+	margin-bottom: 1.5rem;
 }
 
 .mb-32 {
