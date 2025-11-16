@@ -131,8 +131,102 @@
 	<script id="unit-price-data" type="application/json">{{ (unit_price_map or {}) | tojson | safe }}</script>
 	<script id="preselected-popcorn" type="application/json">{{ (preselected_popcorn or {}) | tojson | safe }}</script>
 
-	<!-- ======= JS Script ======= -->
 	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+		/* ---------- Helpers ---------- */
+			const readJSON = (id) => {
+				const el = document.getElementById(id);
+				if (!el) return {};
+				try { return JSON.parse(el.textContent || "{}"); }
+				catch { return {}; }
+			};
+			const getInt = (el) => parseInt(el?.textContent ?? "0", 10) || 0;
+
+			/* ---------- 1. Load backend values ---------- */
+			const priceMap = readJSON("unit-price-data");
+  		const preselected = readJSON("preselected-popcorn");	
+
+			/* ---------- 2. Assign data-unit on price blocks ---------- */
+			document.querySelectorAll(".popcorn__block").forEach(block => {
+				const title = block.querySelector(".title--two")?.textContent?.trim();
+				const unit = priceMap[title];
+				if (typeof unit !== "number") return;
+				block.querySelectorAll(".popcorn__price")
+					.forEach(p => p.dataset.unit = unit);
+			});
+
+			/* ---------- 3. Quantity → Price updater ---------- */
+			const updatePriceForQuantity = (targetId) => {
+				const qtyEl = document.getElementById(targetId);
+				if (!qtyEl) return;
+
+				const qty = getInt(qtyEl);
+				document.querySelectorAll(`.popcorn__price[data-qty-target="${targetId}"]`)
+					.forEach(pc => {
+						const unit = parseFloat(pc.dataset.unit || "0");
+						const valueEl = pc.querySelector(".price-value");
+						if (valueEl) valueEl.textContent = Math.max(0, Math.round(unit * qty));
+					});
+			};
+
+			/* ---------- 4. Quantity increment/decrement ---------- */
+			const updateQuantity = (id, delta) => {
+				const el = document.getElementById(id);
+				if (!el) return;
+				el.textContent = Math.max(0, getInt(el) + delta);
+				updatePriceForQuantity(id);
+				updateItemsSelected();
+			};
+
+			for (const btn of document.querySelectorAll(".qty-plus")) {
+				btn.addEventListener("click", () => updateQuantity(btn.dataset.target, 1));
+			}
+
+			for (const btn of document.querySelectorAll(".qty-minus")) {
+				btn.addEventListener("click", () => updateQuantity(btn.dataset.target, -1));
+			}
+
+			/* ---------- 5. Preload backend quantities ---------- */
+			for (const id in preselected) {
+				const el = document.getElementById(id);
+				if (!el) continue;
+				el.textContent = preselected[id];
+				updatePriceForQuantity(id);
+			}
+
+			/* ---------- 6. Update all prices once ---------- */
+			document.querySelectorAll(".popcorn__qty[id]")
+				.forEach(q => updatePriceForQuantity(q.id));
+
+
+			/* ---------- 7. Cart total items ---------- */
+			const updateItemsSelected = () => {
+				let total = 0;
+				for (const q of document.querySelectorAll(".popcorn__qty[id]")) {
+					total += getInt(q);
+				}
+				const t = document.getElementById("items-selected-count");
+				if (t) t.textContent = total;
+			};
+			updateItemsSelected();
+			
+			/* ---------- 8. Sync hidden fields before submit ---------- */
+			const form = document.getElementById("next-form");
+			if (form) {
+				form.addEventListener("submit", () => {
+					["1", "2", "3"].forEach(num => {
+						const q = document.getElementById(`qty-${num}`);
+						const f = document.getElementById(`form-qty-${num}`);
+						if (f && q) f.value = getInt(q);
+					});
+				});
+			}
+
+		});
+	</script>
+
+	<!-- ======= JS Script ======= -->
+	<!-- <script>
 		document.addEventListener('DOMContentLoaded', function () {
 			// Set data-unit attribute of the price element from backend values
 			try {
@@ -256,5 +350,5 @@
 					});
 			} catch(e) {}*/
 		});
-	</script>
+	</script> -->
 </html>
