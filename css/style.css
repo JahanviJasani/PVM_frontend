@@ -141,9 +141,9 @@ h1, h2, h3 {
 .popcorn__price {
 	font-size: 1.125rem;
 	color: #DD2A24;
-	padding: 0.375rem 0.625rem;
-	border: 3px solid #DD2A24;
-	border-radius: 10px;
+	padding: 0.375rem 0.75rem;
+	border: 3px solid #FCCD3F;
+	border-radius: 20px;
 }
 
 .popcorn__count {
@@ -172,6 +172,22 @@ h1, h2, h3 {
 /*--------------------------------------------------------------
 # Snacks Slider
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Scan & Pay
+--------------------------------------------------------------*/
+.sap__price {
+	font-size: 1.75rem;
+	padding: 0.75rem 1.5rem;
+}
+
+.timer {
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	transform: translateY(-50%);
+	z-index: -1;
+}
 
 /*--------------------------------------------------------------
 # Error

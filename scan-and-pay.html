@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PopTalk | Scan and Pay</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/c9cfe9523b/PVM_frontend/style.css">
+
+		<!-- Stylesheets -->
+		 <link href="css/core.css" rel="stylesheet">
+		 <link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="screen__wrapper d-flex">
+			<!-- ======= Header ======= -->
+			<header class="header">
+				<div class="container d-flex justify-content-between align-items-center h-100">
+					<div class="logo h-100">
+						<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
+					</div>
+					<div class="d-flex align-items-center">
+						<a href="/"><i class="icon-home header__icon me-18"></i></a>
+						<div class="relative">
+							<a class="d-block" href="/"><i class="icon-cart header__icon"></i></a>
+							<span id="items-selected-count" class="items__count d-flex align-items-center justify-content-center">2</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- ======= Content ======= -->
+			<section class="content d-flex flex-column justify-content-between">
+				<div class="d-flex align-items-center flex-1 mt-32 mb-32">
+					<div class="container">
+						<div class="section__header relative">
+							<h1 class="section__title title--one">SCAN AND PAY</h1>
+							<div class="timer">
+								<h3 id="pay-timer" class="ty__title--two">TIME: <span id="timer-seconds">60</span>s</h2>
+							</div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-auto text-center">
+								<div class="mb-32">
+									<img src="img/qr_code.png" />
+								</div>								
+								<div class="price">
+									<h2 class="ty__title--one mb-15">TOTAL AMOUNT</h2>
+									<span class="d-inline-block popcorn__price sap__price">Rs. <span class="price-value">{{ grand_total or 0 }}</span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ======= Footer ======= -->
+			<footer class="footer">
+				<div class="container d-flex align-items-center justify-content-between">
+					<div class="footer__left d-flex">
+						<a href="/" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
+					</div>	
+					<div class="footer__right d-flex align-items-center">
+						<div class="order__id me-24">ORDER ID: 1B28266H</div>
+						<a href="" class="btn__main">CANCEL ORDER</a>
+					</div>
+				</div>	
+			</footer>
+		</div>
+	</body>
+	<!-- <script>
+		document.addEventListener('DOMContentLoaded', function(){
+			var secondsEl = document.getElementById('timer-seconds');
+			if (!secondsEl) return;
+			var remaining = 60;
+			secondsEl.textContent = String(remaining);
+			var t = setInterval(function(){
+					remaining -= 1;
+					if (remaining <= 55) {
+							secondsEl.textContent = '0';
+							clearInterval(t);
+							window.location.href = '/orderprocessing';
+							return;
+					}
+					secondsEl.textContent = String(remaining);
+			}, 1000);
+	});
+	</script> -->
+</html>
