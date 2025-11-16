@@ -7,7 +7,7 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/4434fcf3c8/PVM_frontend/style.css">
 
 		<!-- Stylesheets -->
@@ -22,8 +22,12 @@
 					<div class="logo h-100">
 						<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
 					</div>
-					<div class="order__id">
-							ORDER ID: 1B28266H
+					<div class="d-flex align-items-center">
+						<a href="/"><i class="icon-home header__icon me-18"></i></a>
+						<div class="relative">
+							<a class="d-block" href="/"><i class="icon-cart header__icon"></i></a>
+							<span id="items-selected-count" class="items__count d-flex align-items-center justify-content-center">2</span>
+						</div>
 					</div>
 				</div>
 			</header>
@@ -33,7 +37,7 @@
 				<div class="order__popcorn d-flex align-items-center flex-1 mt-32 mb-32">
 					<div class="container">
 						<div class="section__header">
-							<h1 class="section__title title--one">ORDER POPCORN</h1>
+							<h1 class="section__title title--one">CHOOSE YOUR POPCORN</h1>
 						</div>
 						<div class="row justify-content-center"> 
 							<div class="col-auto">
@@ -41,13 +45,13 @@
 									<div class="pc__block--content">
 										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
 										<h3 class="title--two mb-10">SALT POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-1" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+										<span data-unit="125" data-qty-target="qty-1" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
 									</div>
 									<div class="popcorn__count d-flex align-items-center justify-content-between">
-											<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
-											<span id="qty-1" class="d-block popcorn__qty">0</span>
-											<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
-										</div>
+										<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+										<span id="qty-1" class="d-block popcorn__qty">0</span>
+										<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+									</div>
 								</div>
 							</div>
 							<div class="col-auto">
@@ -55,13 +59,13 @@
 									<div class="pc__block--content">
 										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
 										<h3 class="title--two mb-10">CARAMEL POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-2" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+										<span data-unit="125" data-qty-target="qty-2" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
 									</div>
 									<div class="popcorn__count d-flex align-items-center justify-content-between">
-											<i class="count__icons icon-plus qty-plus" data-target="qty-2"></i>
-											<span id="qty-2" class="d-block popcorn__qty">0</span>
-											<i class="count__icons icon-minus qty-minus" data-target="qty-2"></i>
-										</div>
+										<i class="count__icons icon-minus qty-minus" data-target="qty-2"></i>
+										<span id="qty-2" class="d-block popcorn__qty">0</span>							
+										<i class="count__icons icon-plus qty-plus" data-target="qty-2"></i>			
+									</div>
 								</div>
 							</div>
 							<div class="col-auto">
@@ -69,13 +73,13 @@
 									<div class="pc__block--content">
 										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
 										<h3 class="title--two mb-10">CHEESE POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-3" class="d-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+										<span data-unit="125" data-qty-target="qty-3" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
 									</div>
 									<div class="popcorn__count d-flex align-items-center justify-content-between">
-											<i class="count__icons icon-plus qty-plus" data-target="qty-3"></i>
-											<span id="qty-3" class="d-block popcorn__qty">0</span>
-											<i class="count__icons icon-minus qty-minus" data-target="qty-3"></i>
-										</div>
+										<i class="count__icons icon-minus qty-minus" data-target="qty-3"></i>
+										<span id="qty-3" class="d-block popcorn__qty">0</span>
+										<i class="count__icons icon-plus qty-plus" data-target="qty-3"></i>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -104,20 +108,16 @@
 			<!-- ======= Footer ======= -->
 			<footer class="footer">
 				<div class="container d-flex align-items-center justify-content-between h-100">
-					<div class="footer__left d-flex gap-32">
-						<a href="/" class="d-flex align-items-center"><img class="home__icon" src="img/poptalk_home_icon.png" alt="Poptalk Home Icon"></a>
-						<button class="btn__main">REPORT AND ISSUE</button>
+					<div class="footer__left d-flex">
+						<button class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</button>
 					</div>	
-					<div class="footer__right d-flex gap-20">
-						<div class="items__selected d-flex align-items-center">
-							<span class="selected__text">ITEMS SELECTED</span>
-							<span id="items-selected-count" class="selected__count">2</span>
-						</div>
+					<div class="footer__right d-flex align-items-center">
+						<div class="order__id me-24">ORDER ID: 1B28266H</div>
 						<form id="next-form" action="/ordersnacks" method="post">
 							<input type="hidden" name="qty1" id="form-qty-1" value="0">
 							<input type="hidden" name="qty2" id="form-qty-2" value="0">
 							<input type="hidden" name="qty3" id="form-qty-3" value="0">
-							<button type="submit" class="btn__main">GO TO NEXT PAGE</button>
+							<button type="submit" class="btn__main">ADD SNACKS<i class="icon-chevron-right btn__icon ms-6"></i></button>
 						</form>
 					</div>
 				</div>	
