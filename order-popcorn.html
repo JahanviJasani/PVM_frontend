@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/4434fcf3c8/PVM_frontend/style.css">
+		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/c9cfe9523b/PVM_frontend/style.css">
 
 		<!-- Stylesheets -->
 		 <link href="css/core.css" rel="stylesheet">
@@ -40,6 +40,7 @@
 							<h1 class="section__title title--one">CHOOSE YOUR POPCORN</h1>
 						</div>
 						<div class="row justify-content-center"> 
+							<!-- ======= Popcorn Blocks ======= -->
 							<div class="col-auto">
 								<div class="popcorn__block">
 									<div class="pc__block--content">
@@ -88,6 +89,7 @@
 				<div class="promotions">
 					<div class="container">
 						<div class="row">
+							<!-- ======= Promotion Blocks ======= -->
 							<div class="col-3">
 								<img src="img/50_percent_discount.png" alt="">
 							</div>
@@ -109,7 +111,7 @@
 			<footer class="footer">
 				<div class="container d-flex align-items-center justify-content-between h-100">
 					<div class="footer__left d-flex">
-						<button class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</button>
+						<a href="/" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
 					</div>	
 					<div class="footer__right d-flex align-items-center">
 						<div class="order__id me-24">ORDER ID: 1B28266H</div>
@@ -124,11 +126,15 @@
 			</footer>
 		</div>
 	</body>
+
+	<!-- ======= Embedding JSON into HTML ======= -->
 	<script id="unit-price-data" type="application/json">{{ (unit_price_map or {}) | tojson | safe }}</script>
 	<script id="preselected-popcorn" type="application/json">{{ (preselected_popcorn or {}) | tojson | safe }}</script>
+
+	<!-- ======= JS Script ======= -->
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			// If backend provided unit prices, apply them to price containers
+			// Set data-unit attribute of the price element from backend values
 			try {
 				var priceMap = {};
 				var unitScript = document.getElementById('unit-price-data');
@@ -146,7 +152,9 @@
 						}
 					});
 				}
-			} catch (e) { /* ignore */ }
+			} catch (e) {}
+
+			// Update prices based on quantity updates
 			function updatePriceForQuantity(targetId) {
 				var qtyEl = document.getElementById(targetId);
 				if (!qtyEl) return;
@@ -161,6 +169,7 @@
 				});
 			}
 
+			// Update quantity on plus or minus button clicks
 			function updateQuantity(targetId, delta) {
 				var el = document.getElementById(targetId);
 				if (!el) return;
@@ -172,6 +181,7 @@
 				updatePriceForQuantity(targetId);
 			}
 
+			// Update quantity on plus button click
 			var plusButtons = document.querySelectorAll('.qty-plus');
 			plusButtons.forEach(function(btn){				
 				btn.addEventListener('click', function(){
@@ -180,6 +190,7 @@
 				});
 			});
 
+			// Update quantity on minus button click
 			var minusButtons = document.querySelectorAll('.qty-minus');
 			minusButtons.forEach(function(btn){
 				btn.addEventListener('click', function(){
@@ -201,12 +212,13 @@
 						updatePriceForQuantity(qid);
 					}
 				});
-			} catch (e) { /* ignore */ }
+			} catch (e) {}
+
 			// Recompute for any remaining
 			var qtySpans = document.querySelectorAll('.popcorn__qty[id]');
 			qtySpans.forEach(function(q){ updatePriceForQuantity(q.id); });
 
-			// Update ITEMS SELECTED count
+			// Update cart quantity
 			function updateItemsSelected(){
 					var total = 0;
 					document.querySelectorAll('.popcorn__qty[id]').forEach(function(q){

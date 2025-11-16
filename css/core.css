@@ -51,6 +51,12 @@ img, svg {
   max-width: 100%;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* Layout & Grid */
 .w-100 {
   width: 100%;
