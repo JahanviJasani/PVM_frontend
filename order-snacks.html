@@ -258,31 +258,6 @@
 				});
 			});
 
-			// Cancel items: set all quantities to 0 and update totals/prices
-			var cancelBtn = document.getElementById('cancel-items');
-			if (cancelBtn) {
-				cancelBtn.addEventListener('click', function(e){
-					if (e && e.preventDefault) e.preventDefault();
-					if (e && e.stopPropagation) e.stopPropagation();
-					// Zero all visible quantities across all cards
-					document.querySelectorAll('.popcorn__count span').forEach(function (el) { el.textContent = '0'; });
-					// Recompute all prices based on 0 qty
-					document.querySelectorAll('.popcorn__block').forEach(function (container) { updatePrice(container); });
-					// Update the displayed total count
-					updateSelectedTotal();
-					// Force the ITEM SELECTED badge to show 0 explicitly
-					var selectedEl = document.getElementById('items-selected-count');
-					if (selectedEl) selectedEl.textContent = '0';
-					// Also reset hidden fields so a subsequent submit posts zeros
-					var t = document.getElementById('snacks-total-input');
-					var l = document.getElementById('snacks-lays-input');
-					var c = document.getElementById('snacks-cold-input');
-					if (t) t.value = '0';
-					if (l) l.value = '0';
-					if (c) c.value = '0';
-				});
-			}
-
 			// Sync total on submit to backend
 			var nextForm = document.getElementById('snacks-next-form');
 			if (nextForm) {
