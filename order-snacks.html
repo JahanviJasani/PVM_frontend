@@ -8,10 +8,10 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/c9cfe9523b/PVM_frontend/style.css">
+		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/5a671d812e/PVM_frontend/style.css">
 
 		<!-- Stylesheets -->
-		 <link href="css/tiny-slider.min.css" rel="stylesheet">
+		 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 		 <link href="css/core.css" rel="stylesheet">
 		 <link href="css/style.css" rel="stylesheet">
 	</head>
@@ -34,64 +34,212 @@
 			</header>
 
 			<!-- ======= Content ======= -->
-			<section class="content d-flex flex-column justify-content-between">
-				<div class="order__popcorn d-flex align-items-center flex-1 mt-32 mb-32">
+			 <section class="content d-flex flex-column justify-content-between">
+				<div class="d-flex align-items-center flex-1 mt-32 mb-32">
 					<div class="container">
 						<div class="section__header">
-							<h1 class="section__title title--one">ADD MORE SNACKS</h1>
+							<h1 class="section__title title--one">ADD MORE SNACKS</h1>							
 						</div>
-						<div class="slider__container">
-							<ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
-								<li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-										<i class="fas fa-angle-left fa-5x"></i>
-								</li>
-								<li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
-										<i class="fas fa-angle-right fa-5x"></i>          
-								</li>
-							</ul>
-							<div class="snacks__slider">
-								<div class="popcorn__block">
-									<div class="pc__block--content">
-										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
-										<h3 class="title--two mb-10">SALT POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-1" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
+						<div class="relative">
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
 									</div>
-									<div class="popcorn__count d-flex align-items-center justify-content-between">
-										<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
-										<span id="qty-1" class="d-block popcorn__qty">0</span>
-										<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
 									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="popcorn__block sp__block">
+											<div class="pc__block--content">
+												<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+												<h3 class="slider--title mb-6">SALT POPCORN</h3>
+												<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value">0</span>/-</span>
+											</div>
+											<div class="popcorn__count d-flex align-items-center justify-content-between">
+												<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
+												<span>0</span>
+												<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
+											</div>
+										</div>
+									</div>
+									
 								</div>
-								<div class="popcorn__block">
-									<div class="pc__block--content">
-										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
-										<h3 class="title--two mb-10">SALT POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-1" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
-									</div>
-									<div class="popcorn__count d-flex align-items-center justify-content-between">
-										<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
-										<span id="qty-1" class="d-block popcorn__qty">0</span>
-										<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
-									</div>
+
+								<!-- navigation buttons -->
+								<div class="custom_button_prev custom_button">
+									<img class="button_img" src="img/left__arrow.png" />
 								</div>
-								<div class="popcorn__block">
-									<div class="pc__block--content">
-										<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
-										<h3 class="title--two mb-10">SALT POPCORN</h3>
-										<span data-unit="125" data-qty-target="qty-1" class="d-inline-block popcorn__price">Rs. <span class="price-value">0</span>/-</span>
-									</div>
-									<div class="popcorn__count d-flex align-items-center justify-content-between">
-										<i class="count__icons icon-minus qty-minus" data-target="qty-1"></i>
-										<span id="qty-1" class="d-block popcorn__qty">0</span>
-										<i class="count__icons icon-plus qty-plus" data-target="qty-1"></i>
-									</div>
+								<div class="custom_button_next custom_button">
+									<img class="button_img" src="img/right__arrow.png" />
 								</div>
-								
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+			 </section>
 
 			<!-- ======= Footer ======= -->
 			<footer class="footer">
@@ -112,37 +260,8 @@
 			</footer>
 		</div>
 	</body>
-	<!-- <script>
-    const itemsPerPage = 10;
-    let currentPage = 1;
-  
-    function showPage(page) {
-      const allItems = document.querySelectorAll('.item-card');
-      const totalPages = Math.ceil(allItems.length / itemsPerPage);
-  
-      if (page < 1) page = 1;
-      if (page > totalPages) page = totalPages;
-  
-      allItems.forEach((item, index) => {
-        item.classList.remove('active');
-        if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-          item.classList.add('active');
-        }
 
-  // Cancel handler moved to later script (after updatePrice is defined)
-      });
-  
-      document.getElementById('pageInfo').innerText = `Page ${page} of ${totalPages}`;
-      currentPage = page;
-    }
-  
-    function changePage(direction) {
-      showPage(currentPage + direction);
-    }
-  
-    // Initial display
-    showPage(currentPage); -->
-  </script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 	<script id="snack-unit-price-data" type="application/json">{{ (snack_unit_price_map or {}) | tojson | safe }}</script>
 	<script id="preselected-snacks" type="application/json">{{ (preselected_snacks or {}) | tojson | safe }}</script>
 	<script>
@@ -166,134 +285,148 @@
 				}
 			} catch (e) { /* ignore */ }
 			
-			function getQtySpan(container) {
-				var span = container.querySelector('.pop-count span');
-				return span || null;
-			}
+				function getQtySpan(container) {
+					var span = container.querySelector('.pop-count span');
+					return span || null;
+				}
 
-			function getPriceEl(container) {
-				return container.querySelector('p.rs') || container.querySelector('p');
-			}
+				function getPriceEl(container) {
+					return container.querySelector('p.rs') || container.querySelector('p');
+				}
 
-			function parseUnitFromText(text) {
-				var clean = (text || '').replace(/\s+/g, '');
-				var m = clean.match(/RS\.?([0-9]+)/i);
-				if (m && m[1]) return parseInt(m[1], 10) || 0;
-				var n = (text || '').match(/([0-9]+)/);
-				return n ? (parseInt(n[1], 10) || 0) : 0;
-			}
+				function parseUnitFromText(text) {
+					var clean = (text || '').replace(/\s+/g, '');
+					var m = clean.match(/RS\.?([0-9]+)/i);
+					if (m && m[1]) return parseInt(m[1], 10) || 0;
+					var n = (text || '').match(/([0-9]+)/);
+					return n ? (parseInt(n[1], 10) || 0) : 0;
+				}
 
-			function updatePrice(container) {
-				var qtyEl = getQtySpan(container);
-				var priceEl = getPriceEl(container);
-				if (!qtyEl || !priceEl) return;
-				var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
-				if (isNaN(qty)) qty = 0;
-				var unitAttr = priceEl.getAttribute('data-unit');
-				var unit = unitAttr !== null ? parseInt(unitAttr, 10) : NaN;
-				if (isNaN(unit)) unit = parseUnitFromText(priceEl.textContent || priceEl.innerText || '0');
-				var total = Math.max(0, unit * qty);
-				priceEl.setAttribute('data-unit', String(unit));
-				priceEl.textContent = 'RS.' + String(total) + '/-';
-			}
+				function updatePrice(container) {
+					var qtyEl = getQtySpan(container);
+					var priceEl = getPriceEl(container);
+					if (!qtyEl || !priceEl) return;
+					var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
+					if (isNaN(qty)) qty = 0;
+					var unitAttr = priceEl.getAttribute('data-unit');
+					var unit = unitAttr !== null ? parseInt(unitAttr, 10) : NaN;
+					if (isNaN(unit)) unit = parseUnitFromText(priceEl.textContent || priceEl.innerText || '0');
+					var total = Math.max(0, unit * qty);
+					priceEl.setAttribute('data-unit', String(unit));
+					priceEl.textContent = 'RS.' + String(total) + '/-';
+				}
 
-			function updateSelectedTotal() {
-				var total = 0;
-				document.querySelectorAll('.pop-count span').forEach(function (s) {
-					var v = parseInt(s.textContent || s.innerText || '0', 10);
-					if (!isNaN(v)) total += v;
-				});
-				var target = document.getElementById('item-selected-count');
-				if (target) target.textContent = String(total);
-			}
-
-			function adjust(container, delta) {
-				var qtyEl = getQtySpan(container);
-				if (!qtyEl) return;
-				var value = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
-				if (isNaN(value)) value = 0;
-				value = value + delta;
-				if (value < 0) value = 0;
-				qtyEl.textContent = String(value);
-				updatePrice(container);
-				updateSelectedTotal();
-			}
-
-			// Initialize all quantities to 0 regardless of any previous state
-			document.querySelectorAll('.popcorn-details').forEach(function (container) {
-				var qtyEl = getQtySpan(container);
-				if (qtyEl) qtyEl.textContent = '0';
-				updatePrice(container);
-			});
-			updateSelectedTotal();
-
-			// Bind plus/minus events
-			document.querySelectorAll('.popcorn-details .fa-plus').forEach(function (btn) {
-				btn.addEventListener('click', function () {
-					var container = btn.closest('.popcorn-details');
-					if (container) adjust(container, 1);
-				});
-			});
-
-			document.querySelectorAll('.popcorn-details .fa-minus').forEach(function (btn) {
-				btn.addEventListener('click', function () {
-					var container = btn.closest('.popcorn-details');
-					if (container) adjust(container, -1);
-				});
-			});
-
-			// Cancel items: set all quantities to 0 and update totals/prices
-			var cancelBtn = document.getElementById('cancel-items');
-			if (cancelBtn) {
-				cancelBtn.addEventListener('click', function(e){
-					if (e && e.preventDefault) e.preventDefault();
-					if (e && e.stopPropagation) e.stopPropagation();
-					// Zero all visible quantities across all cards
-					document.querySelectorAll('.pop-count span').forEach(function (el) { el.textContent = '0'; });
-					// Recompute all prices based on 0 qty
-					document.querySelectorAll('.popcorn-details').forEach(function (container) { updatePrice(container); });
-					// Update the displayed total count
-					updateSelectedTotal();
-					// Force the ITEM SELECTED badge to show 0 explicitly
-					var selectedEl = document.getElementById('item-selected-count');
-					if (selectedEl) selectedEl.textContent = '0';
-					// Also reset hidden fields so a subsequent submit posts zeros
-					var t = document.getElementById('snacks-total-input');
-					var l = document.getElementById('snacks-lays-input');
-					var c = document.getElementById('snacks-cold-input');
-					if (t) t.value = '0';
-					if (l) l.value = '0';
-					if (c) c.value = '0';
-				});
-			}
-
-			// Sync total on submit to backend
-			var nextForm = document.getElementById('snacks-next-form');
-			if (nextForm) {
-				nextForm.addEventListener('submit', function(){
-					var totalTarget = document.getElementById('item-selected-count');
-					var hiddenInput = document.getElementById('snacks-total-input');
-					var laysInput = document.getElementById('snacks-lays-input');
-					var coldInput = document.getElementById('snacks-cold-input');
-					if (totalTarget && hiddenInput) {
-						hiddenInput.value = (totalTarget.textContent || totalTarget.innerText || '0').trim();
-					}
-
-					// Sum per product type by reading titles
-					var lays = 0, cold = 0;
-					document.querySelectorAll('.popcorn-details').forEach(function(container){
-						var title = (container.querySelector('h4')?.textContent || '').trim().toUpperCase();
-						var qtyEl = container.querySelector('.pop-count span');
-						var qty = parseInt(qtyEl ? (qtyEl.textContent || qtyEl.innerText || '0') : '0', 10);
-						if (isNaN(qty)) qty = 0;
-						if (title.indexOf('LAYS') !== -1) lays += qty;
-						if (title.indexOf('COLD DRINK') !== -1) cold += qty;
+				function updateSelectedTotal() {
+					var total = 0;
+					document.querySelectorAll('.pop-count span').forEach(function (s) {
+						var v = parseInt(s.textContent || s.innerText || '0', 10);
+						if (!isNaN(v)) total += v;
 					});
-					if (laysInput) laysInput.value = String(lays);
-					if (coldInput) coldInput.value = String(cold);
+					var target = document.getElementById('item-selected-count');
+					if (target) target.textContent = String(total);
+				}
+
+				function adjust(container, delta) {
+					var qtyEl = getQtySpan(container);
+					if (!qtyEl) return;
+					var value = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
+					if (isNaN(value)) value = 0;
+					value = value + delta;
+					if (value < 0) value = 0;
+					qtyEl.textContent = String(value);
+					updatePrice(container);
+					updateSelectedTotal();
+				}
+
+				// Initialize all quantities to 0 regardless of any previous state
+				document.querySelectorAll('.popcorn-details').forEach(function (container) {
+					var qtyEl = getQtySpan(container);
+					if (qtyEl) qtyEl.textContent = '0';
+					updatePrice(container);
 				});
-			}
-			
+				updateSelectedTotal();
+
+				// Bind plus/minus events
+				document.querySelectorAll('.popcorn-details .fa-plus').forEach(function (btn) {
+					btn.addEventListener('click', function () {
+						var container = btn.closest('.popcorn-details');
+						if (container) adjust(container, 1);
+					});
+				});
+
+				document.querySelectorAll('.popcorn-details .fa-minus').forEach(function (btn) {
+					btn.addEventListener('click', function () {
+						var container = btn.closest('.popcorn-details');
+						if (container) adjust(container, -1);
+					});
+				});
+
+				// Cancel items: set all quantities to 0 and update totals/prices
+				var cancelBtn = document.getElementById('cancel-items');
+				if (cancelBtn) {
+					cancelBtn.addEventListener('click', function(e){
+						if (e && e.preventDefault) e.preventDefault();
+						if (e && e.stopPropagation) e.stopPropagation();
+						// Zero all visible quantities across all cards
+						document.querySelectorAll('.pop-count span').forEach(function (el) { el.textContent = '0'; });
+						// Recompute all prices based on 0 qty
+						document.querySelectorAll('.popcorn-details').forEach(function (container) { updatePrice(container); });
+						// Update the displayed total count
+						updateSelectedTotal();
+						// Force the ITEM SELECTED badge to show 0 explicitly
+						var selectedEl = document.getElementById('item-selected-count');
+						if (selectedEl) selectedEl.textContent = '0';
+						// Also reset hidden fields so a subsequent submit posts zeros
+						var t = document.getElementById('snacks-total-input');
+						var l = document.getElementById('snacks-lays-input');
+						var c = document.getElementById('snacks-cold-input');
+						if (t) t.value = '0';
+						if (l) l.value = '0';
+						if (c) c.value = '0';
+					});
+				}
+
+				// Sync total on submit to backend
+				var nextForm = document.getElementById('snacks-next-form');
+				if (nextForm) {
+					nextForm.addEventListener('submit', function(){
+						var totalTarget = document.getElementById('item-selected-count');
+						var hiddenInput = document.getElementById('snacks-total-input');
+						var laysInput = document.getElementById('snacks-lays-input');
+						var coldInput = document.getElementById('snacks-cold-input');
+						if (totalTarget && hiddenInput) {
+							hiddenInput.value = (totalTarget.textContent || totalTarget.innerText || '0').trim();
+						}
+
+						// Sum per product type by reading titles
+						var lays = 0, cold = 0;
+						document.querySelectorAll('.popcorn-details').forEach(function(container){
+							var title = (container.querySelector('h4')?.textContent || '').trim().toUpperCase();
+							var qtyEl = container.querySelector('.pop-count span');
+							var qty = parseInt(qtyEl ? (qtyEl.textContent || qtyEl.innerText || '0') : '0', 10);
+							if (isNaN(qty)) qty = 0;
+							if (title.indexOf('LAYS') !== -1) lays += qty;
+							if (title.indexOf('COLD DRINK') !== -1) cold += qty;
+						});
+						if (laysInput) laysInput.value = String(lays);
+						if (coldInput) coldInput.value = String(cold);
+					});
+				}
+
+				const swiper = new Swiper('.swiper', {
+				slidesPerView: 5,  
+				spaceBetween: 25,         
+				grid: {
+					rows: 2,               
+					fill: "row",           
+				},
+				// Navigation arrows
+				navigation: {
+					nextEl: '.custom_button_next',
+					prevEl: '.custom_button_prev',
+				},
+			});
+
 			// 30s inactivity redirect to home
 			/*try {
 				var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);

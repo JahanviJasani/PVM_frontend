@@ -172,6 +172,54 @@ h1, h2, h3 {
 /*--------------------------------------------------------------
 # Snacks Slider
 --------------------------------------------------------------*/
+.swiper {
+	position: unset;
+	margin: 0 6%;
+}
+
+.custom_button {
+	position: absolute;
+	width: 90px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+  z-index: 10;
+	text-align: center;
+}
+
+.custom_button_prev {
+  left: -3%;
+}
+
+.custom_button_next {
+  right: -3%;
+}
+
+.button_img {
+	width: 40px;
+}
+
+.sp__block {
+	max-width: 100%;
+	margin: 0;
+}
+
+.swiper-slide .pc__block--content {
+	padding: 0.625rem 1.25rem;
+}
+
+.swiper-slide .popcorn__img {
+	max-width: 120px;
+}
+
+.slider--title {
+	font-size: 1rem;
+}
+
+.sp__price {
+	font-size: 1rem;
+	padding: 0.25rem 0.625rem;
+}
 
 /*--------------------------------------------------------------
 # Scan & Pay
@@ -279,5 +327,15 @@ h1, h2, h3 {
 	}
 	.popcorn__img {
 		max-width: unset;
+	}
+
+	.swiper-slide .popcorn__img {
+		max-width: 150px;
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	.button_img {
+		width: 50px;
 	}
 }

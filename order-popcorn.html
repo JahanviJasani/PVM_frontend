@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/c9cfe9523b/PVM_frontend/style.css">
+		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/5a671d812e/PVM_frontend/style.css">
 
 		<!-- Stylesheets -->
 		 <link href="css/core.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 
 			<!-- ======= Content ======= -->
 			<section class="content d-flex flex-column justify-content-between">
-				<div class="order__popcorn d-flex align-items-center flex-1 mt-32 mb-32">
+				<div class="d-flex align-items-center flex-1 mt-32 mb-32">
 					<div class="container">
 						<div class="section__header">
 							<h1 class="section__title title--one">CHOOSE YOUR POPCORN</h1>
@@ -250,10 +250,10 @@
 			}
 			// 30s inactivity redirect to home
 			try {
-					var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
-					['click','keydown','touchstart'].forEach(function(evt){
-							window.addEventListener(evt, function(){ clearTimeout(inactivityTimer); inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000); }, { passive: true });
-					});
+				var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
+				['click','keydown','touchstart'].forEach(function(evt){
+						window.addEventListener(evt, function(){ clearTimeout(inactivityTimer); inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000); }, { passive: true });
+				});
 			} catch(e) {}
 		});
 	</script>
