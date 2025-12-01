@@ -217,6 +217,7 @@ h1, h2, h3 {
 }
 
 .slider--title {
+	text-transform: uppercase;
 	font-size: 1rem;
 }
 
