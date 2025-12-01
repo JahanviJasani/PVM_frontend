@@ -249,12 +249,12 @@
 				});
 			}
 			// 30s inactivity redirect to home
-			/*try {
+			try {
 					var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
 					['click','keydown','touchstart'].forEach(function(evt){
 							window.addEventListener(evt, function(){ clearTimeout(inactivityTimer); inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000); }, { passive: true });
 					});
-			} catch(e) {}*/
+			} catch(e) {}
 		});
 	</script>
 </html>
