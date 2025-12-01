@@ -128,33 +128,33 @@
 					var unitScript = document.getElementById('snack-unit-price-data');
 					if (unitScript) {
 						snackPriceMap = JSON.parse(unitScript.textContent || '{}');
-						console.log(snackPriceMap);
 					}
 
 					// Inject dynamic slides and unit prices
 					var wrapper = document.querySelector(".swiper .swiper-wrapper");
 					wrapper.innerHTML = "";
 
-					Object.keys(snackPriceMap).forEach(title => {
-					var unit = snackPriceMap[title] || 0;
-					const slide = document.createElement("div");
-					slide.classList.add("swiper-slide");
-					slide.innerHTML = `
-						<div class="popcorn__block sp__block">
-							<div class="pc__block--content">
-								<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
-								<h3 class="slider--title mb-6">${title}</h3>
-								<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value" data-unit="${unit}">${unit}</span>/-</span>
+					Object.keys(snackPriceMap).forEach((title, index) => {
+						const qtySerial = index + 1;
+						var unit = snackPriceMap[title] || 0;
+						const slide = document.createElement("div");
+						slide.classList.add("swiper-slide");
+						slide.innerHTML = `
+							<div class="popcorn__block sp__block">
+								<div class="pc__block--content">
+									<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
+									<h3 class="slider--title mb-6">${title}</h3>
+									<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value" data-unit="${unit}">${unit}</span>/-</span>
+								</div>
+								<div class="popcorn__count d-flex align-items-center justify-content-between">
+									<i class="count__icons icon-minus qty-minus" data-target="qty-${qtySerial}"></i>
+									<span>0</span>
+									<i class="count__icons icon-plus qty-plus" data-target="qty-${qtySerial}"></i>
+								</div>
 							</div>
-							<div class="popcorn__count d-flex align-items-center justify-content-between">
-								<i class="count__icons icon-minus qty-minus" data-target="qty-6"></i>
-								<span>0</span>
-								<i class="count__icons icon-plus qty-plus" data-target="qty-6"></i>
-							</div>
-						</div>
-					`;
-
-					wrapper.appendChild(slide);
+						`;
+						
+						wrapper.appendChild(slide);
 				});
 
 				} catch (e) {}
@@ -176,6 +176,9 @@
 				});
 			}
 				
+			buildSlides();
+			initSwiper();
+			
 			function getQtySpan(container) {
 				var span = container.querySelector('.popcorn__count span');
 				return span || null;
@@ -195,6 +198,7 @@
 
 			function updatePrice(container) {
 					var qtyEl = getQtySpan(container);
+					console.log(qtyEl);
 					var priceEl = getPriceEl(container);
 					if (!qtyEl || !priceEl) return;
 					var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
@@ -240,6 +244,7 @@
 
 			// Bind plus/minus events
 			document.querySelectorAll('.popcorn__block .qty-plus').forEach(function (btn) {
+				console.log("Hie");
 				btn.addEventListener('click', function () {
 					var container = btn.closest('.popcorn__block');
 					if (container) adjust(container, 1);
@@ -304,9 +309,6 @@
 					if (coldInput) coldInput.value = String(cold);
 				});
 			}
-
-			buildSlides();
-			initSwiper();
 
 			// 30s inactivity redirect to home
 			/*try {
