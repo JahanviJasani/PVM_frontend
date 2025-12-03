@@ -611,3 +611,52 @@ ul {
   flex-direction: column;
 }
 
+
+/* icomoon icons */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?2l492a');
+  src:  url('../fonts/icomoon.eot?2l492a#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?2l492a') format('truetype'),
+    url('../fonts/icomoon.woff?2l492a') format('woff'),
+    url('../fonts/icomoon.svg?2l492a#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chevron-left:before {
+  content: "\e905";
+}
+.icon-chevron-right:before {
+  content: "\e904";
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-minus:before {
+  content: "\e901";
+}
+.icon-plus:before {
+  content: "\e902";
+}
+.icon-cart:before {
+  content: "\e903";
+}
+
+
