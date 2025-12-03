@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PopTalk Home Screen</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+		<!-- Stylesheets -->
+		 <link href="css/core.css" rel="stylesheet">
+		 <link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="screen__wrapper d-flex">
+			<!-- ======= Header ======= -->
+			<header class="header">
+				<div class="container d-flex justify-content-between align-items-center h-100">
+					<div class="logo h-100">
+						<img alt="Poptalk Logo" class="logo__img" src="img/poptalk_logo.png">
+					</div>
+					<div class="d-flex align-items-center">
+						<a href="/"><i class="icon-home header__icon me-18"></i></a>
+						<div class="relative">
+							<a class="d-block" href="/"><i class="icon-cart header__icon"></i></a>
+							<span id="items-selected-count" class="items__count d-flex align-items-center justify-content-center">0</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- ======= Content ======= -->
+			<section class="content d-flex flex-column justify-content-between">
+				<div class="d-flex align-items-center flex-1 mt-32 mb-32">
+					<div class="container text-center">
+						<div class="section__header">
+							<img class="error__img mb-32" src="img/popcorn_graphic.png" alt="">
+							<h1 class="section__title title--one">ORDER PROCESSING</h1>							
+						</div>
+						<div class="progress">
+							<div id="progress_bar" class="bar" style="width: 70%"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ======= Footer ======= -->
+			<footer class="footer">
+				<div class="container d-flex align-items-center justify-content-between h-100">
+					<div class="footer__left d-flex">
+						<a href="/order-snacks" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
+					</div>	
+					<div class="footer__right d-flex align-items-center">
+						<div class="order__id me-24">ORDER ID: 1B28266H</div>
+						<a href="/scan-and-pay" class="btn__main">PROCEED TO PAY<i class="icon-chevron-right btn__icon ms-6"></i></a>
+					</div>
+				</div>	
+			</footer>
+		</div>
+	</body>
+</html>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		function updateProgress(val) {
+    const bar = document.getElementById("progress_bar");
+    bar.style.width = val + "%";
+	}
+
+	// Example updates
+	updateProgress(10);
+	setTimeout(() => updateProgress(60), 1000);
+
+		// function checkDone(){
+		// 	fetch('/orderprocessing/poll').then(function(r){ return r.json(); }).then(function(data){
+		// 		if (data && data.done){ window.location.href = '/thankyou'; return; }
+		// 		setTimeout(checkDone, 1000);
+		// 	}).catch(function(){ setTimeout(checkDone, 1500); });
+		// }
+		// checkDone();
+	});
+</script>
