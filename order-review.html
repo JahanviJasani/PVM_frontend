@@ -34,7 +34,7 @@
 						<div class="section__header">
 							<h1 class="section__title title--one">REVIEW ORDER</h1>							
 						</div>
-						<div class="relative">
+						<div class="relative order__review">
 							<div class="swiper">
 								<div class="swiper-wrapper"></div>
 								<!-- navigation buttons -->
@@ -45,6 +45,10 @@
 									<img class="button_img" src="img/right__arrow.png" />
 								</div>
 							</div>
+						</div>
+						<div class="price text-center mt-32">
+							<h2 class="ty__title--one mb-15">TOTAL AMOUNT</h2>
+							<span class="d-inline-block popcorn__price sap__price">Rs. <span class="price-value">540.00</span>/-</span>
 						</div>
 					</div>
 				</div>
@@ -58,25 +62,28 @@
 					</div>	
 					<div class="footer__right d-flex align-items-center">
 						<div class="order__id me-24">ORDER ID: 1B28266H</div>
-						<form id="snacks-next-form" action="/scan-and-pay" method="post" style="margin:0;">
-							<input type="hidden" name="totalItems" id="snacks-total-input" value="0">
-							<input type="hidden" name="laysCount" id="snacks-lays-input" value="0">
-							<input type="hidden" name="coldDrinkCount" id="snacks-cold-input" value="0">
-							<button type="submit" class="btn__main">PROCEED TO PAY<i class="icon-chevron-right btn__icon ms-6"></i></button>
-						</form>
+						<a href="/scan-and-pay" class="btn__main">PROCEED TO PAY<i class="icon-chevron-right btn__icon ms-6"></i></a>
 					</div>
 				</div>	
 			</footer>
 		</div>
 	</body>
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-	<script src="swiper-bundle.min.js"></script>
-	<script id="snack-unit-price-data" type="application/json">{{ (snack_unit_price_map or {}) | tojson | safe }}</script>
-	<script id="preselected-snacks" type="application/json">{{ (preselected_snacks or {}) | tojson | safe }}</script>
+	<script id="snack-unit-price-data" type="application/json">
+		{
+			"Classic Lays": 40,
+			"Coke 500ml": 50,
+			"Salted Popcorn": 120,
+			"Cheese Nachos": 80,
+			"Spicy Samosa": 30,
+			"Chocolate Muffin": 60,
+			"Vanilla Ice Cream": 90,
+			"Peanut Butter Cookies": 45
+		}
+	</script>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
+		document.addEventListener('DOMContentLoaded', function(){
 
 			function buildSlides() {
 				var snackPriceMap = {};
@@ -99,7 +106,7 @@
 							<div class="popcorn__block sp__block">
 								<div class="pc__block--content">
 									<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
-									<h3 class="slider--title mb-6">${title}</h3>
+									<h3 class="title--two mb-10">${title}</h3>
 									<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value" data-unit="${unit}">${unit}</span>/-</span>
 								</div>
 								<div class="popcorn__count d-flex align-items-center justify-content-between">
@@ -120,11 +127,7 @@
 				new Swiper('.swiper', {
 					slidesPerView: 5,  
 					spaceBetween: 25,         
-					grid: {
-						rows: 2,               
-						fill: "row",           
-					},
-					// Navigation arrows
+					slidesPerView: 4,
 					navigation: {
 						nextEl: '.custom_button_next',
 						prevEl: '.custom_button_prev',
@@ -134,120 +137,17 @@
 				
 			buildSlides();
 			initSwiper();
-			
-			function getQtySpan(container) {
-				var span = container.querySelector('.popcorn__count span');
-				return span || null;
-			}
 
-			function getPriceEl(container) {
-					return container.querySelector('.price-value');
-				}
-
-			function parseUnitFromText(text) {
-					var clean = (text || '').replace(/\s+/g, '');
-					var m = clean.match(/RS\.?([0-9]+)/i);
-					if (m && m[1]) return parseInt(m[1], 10) || 0;
-					var n = (text || '').match(/([0-9]+)/);
-					return n ? (parseInt(n[1], 10) || 0) : 0;
-				}
-
-			function updatePrice(container) {
-					var qtyEl = getQtySpan(container);
-					console.log(qtyEl);
-					var priceEl = getPriceEl(container);
-					if (!qtyEl || !priceEl) return;
-					var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
-					if (isNaN(qty)) qty = 0;
-					var unitAttr = priceEl.getAttribute('data-unit');
-					var unit = unitAttr !== null ? parseInt(unitAttr, 10) : NaN;
-					if (isNaN(unit)) unit = parseUnitFromText(priceEl.textContent || priceEl.innerText || '0');
-					var total = Math.max(0, unit * qty);
-					priceEl.setAttribute('data-unit', String(unit));
-					priceEl.textContent = String(total);
-				}
-
-			// Update cart count
-			function updateSelectedTotal() {
-					var total = 0;
-					document.querySelectorAll('.popcorn__count span').forEach(function (s) {
-						var v = parseInt(s.textContent || s.innerText || '0', 10);
-						if (!isNaN(v)) total += v;
-					});
-					var target = document.getElementById('items-selected-count');
-					if (target) target.textContent = String(total);
-				}
-
-			function adjust(container, delta) {
-				var qtyEl = getQtySpan(container);
-				if (!qtyEl) return;
-				var value = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
-				if (isNaN(value)) value = 0;
-				value = value + delta;
-				if (value < 0) value = 0;
-				qtyEl.textContent = String(value);
-				updatePrice(container);
-				updateSelectedTotal();
-			}
-
-			// Initialize all quantities to 0 regardless of any previous state
-			document.querySelectorAll('.popcorn__block').forEach(function (container) {
-				var qtyEl = getQtySpan(container);
-				if (qtyEl) qtyEl.textContent = '0';
-				updatePrice(container);
-			});
-			updateSelectedTotal();
-
-			// Bind plus/minus events
-			document.querySelectorAll('.popcorn__block .qty-plus').forEach(function (btn) {
-				console.log("Hie");
-				btn.addEventListener('click', function () {
-					var container = btn.closest('.popcorn__block');
-					if (container) adjust(container, 1);
-				});
-			});
-
-			document.querySelectorAll('.popcorn__block .qty-minus').forEach(function (btn) {
-				btn.addEventListener('click', function () {
-					var container = btn.closest('.popcorn__block');
-					if (container) adjust(container, -1);
-				});
-			});
-
-			// Sync total on submit to backend
-			var nextForm = document.getElementById('snacks-next-form');
-			if (nextForm) {
-				nextForm.addEventListener('submit', function(){
-					var totalTarget = document.getElementById('items-selected-count');
-					var hiddenInput = document.getElementById('snacks-total-input');
-					var laysInput = document.getElementById('snacks-lays-input');
-					var coldInput = document.getElementById('snacks-cold-input');
-					if (totalTarget && hiddenInput) {
-						hiddenInput.value = (totalTarget.textContent || totalTarget.innerText || '0').trim();
-					}
-
-					// Sum per product type by reading titles
-					var lays = 0, cold = 0;
-					document.querySelectorAll('.popcorn__block').forEach(function(container){
-						var title = (container.querySelector('.slider--title')?.textContent || '').trim().toUpperCase();
-						var qtyEl = container.querySelector('.popcorn__count span');
-						var qty = parseInt(qtyEl ? (qtyEl.textContent || qtyEl.innerText || '0') : '0', 10);
-						if (isNaN(qty)) qty = 0;
-						if (title.indexOf('LAYS') !== -1) lays += qty;
-						if (title.indexOf('COLD DRINK') !== -1) cold += qty;
-					});
-					if (laysInput) laysInput.value = String(lays);
-					if (coldInput) coldInput.value = String(cold);
-				});
-			}
-
-			// 30s inactivity redirect to home
-			/*try {
-				var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
-				['click','keydown','touchstart'].forEach(function(evt){
-					window.addEventListener(evt, function(){ clearTimeout(inactivityTimer); inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000); }, { passive: true });
-				});
-			} catch(e) {}*/
-	});
-	</script>
+			// try {
+			// 	var inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
+			// 	['click','keydown','touchstart'].forEach(function(evt){
+			// 		window.addEventListener(evt, function(){
+			// 			clearTimeout(inactivityTimer);
+			// 			inactivityTimer = setTimeout(function(){ window.location.href = '/'; }, 30000);
+			// 		}, { passive: true });
+			// 	});
+			// } catch(e) {}
+		});
+		</script>
+	<script src="js/swiper-bundle.min.js"></script>
 </html>

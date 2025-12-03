@@ -187,7 +187,13 @@ h1, h2, h3 {
 --------------------------------------------------------------*/
 .swiper {
 	position: unset;
-	margin: 0 6%;
+	margin: 0 6.5%;
+}
+
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+	padding-left: 25px;
 }
 
 .custom_button {
@@ -217,11 +223,12 @@ h1, h2, h3 {
 }
 
 .sp__block {
+	width: 220px;
 	max-width: 100%;
 	margin: 0;
 }
 
-.swiper-slide .pc__block--content {
+.sp__block--content {
 	padding: 0.625rem 1.25rem;
 }
 
@@ -237,6 +244,13 @@ h1, h2, h3 {
 .sp__price {
 	font-size: 1rem;
 	padding: 0.25rem 0.625rem;
+}
+
+/*--------------------------------------------------------------
+# Order Review
+--------------------------------------------------------------*/
+.order__review {
+	margin: 0 6%;	
 }
 
 /*--------------------------------------------------------------
@@ -342,6 +356,9 @@ h1, h2, h3 {
 	--------------------------------------------------------------*/
 	.popcorn__block {
 		width: 300px;
+	}
+	.sp__block {
+		width: 280px;
 	}
 	.popcorn__img {
 		max-width: unset;

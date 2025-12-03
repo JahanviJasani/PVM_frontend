@@ -96,7 +96,7 @@
 						slide.classList.add("swiper-slide");
 						slide.innerHTML = `
 							<div class="popcorn__block sp__block">
-								<div class="pc__block--content">
+								<div class="sp__block--content pc__block--content">
 									<img class="popcorn__img mb-10" src="img/salt_popcorn.png" alt="Salt Popcorn">
 									<h3 class="slider--title mb-6">${title}</h3>
 									<span class="d-inline-block popcorn__price sp__price">Rs. <span class="price-value" data-unit="${unit}">${unit}</span>/-</span>
@@ -153,7 +153,6 @@
 
 			function updatePrice(container) {
 					var qtyEl = getQtySpan(container);
-					console.log(qtyEl);
 					var priceEl = getPriceEl(container);
 					if (!qtyEl || !priceEl) return;
 					var qty = parseInt(qtyEl.textContent || qtyEl.innerText || '0', 10);
@@ -199,7 +198,6 @@
 
 			// Bind plus/minus events
 			document.querySelectorAll('.popcorn__block .qty-plus').forEach(function (btn) {
-				console.log("Hie");
 				btn.addEventListener('click', function () {
 					var container = btn.closest('.popcorn__block');
 					if (container) adjust(container, 1);
