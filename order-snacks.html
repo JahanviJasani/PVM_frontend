@@ -21,7 +21,7 @@
 						<a href="/"><i class="icon-home header__icon me-18"></i></a>
 						<div class="relative">
 							<a class="d-block" href="/"><i class="icon-cart header__icon"></i></a>
-							<span id="items-selected-count" class="items__count d-flex align-items-center justify-content-center">2</span>
+							<span id="items-selected-count" class="items__count d-flex align-items-center justify-content-center">0</span>
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 			<footer class="footer">
 				<div class="container d-flex align-items-center justify-content-between h-100">
 					<div class="footer__left d-flex">
-						<a href="/" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
+						<a href="/order-popcorn" class="btn__main"><i class="icon-chevron-left btn__icon me-6"></i>BACK</a>
 					</div>	
 					<div class="footer__right d-flex align-items-center">
 						<div class="order__id me-24">ORDER ID: 1B28266H</div>
@@ -70,8 +70,7 @@
 		</div>
 	</body>
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-	<script src="swiper-bundle.min.js"></script>
+	<script src="js/swiper-bundle.min.js"></script>
 	<script id="snack-unit-price-data" type="application/json">{{ (snack_unit_price_map or {}) | tojson | safe }}</script>
 	<script id="preselected-snacks" type="application/json">{{ (preselected_snacks or {}) | tojson | safe }}</script>
 
